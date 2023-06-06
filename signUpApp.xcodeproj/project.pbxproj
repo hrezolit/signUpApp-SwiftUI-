@@ -13,6 +13,8 @@
 		D571DB512A2D8EA600BC6BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D571DB502A2D8EA600BC6BF5 /* Preview Assets.xcassets */; };
 		D571DB532A2D8EA600BC6BF5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571DB522A2D8EA600BC6BF5 /* Persistence.swift */; };
 		D571DB562A2D8EA600BC6BF5 /* signUpApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D571DB542A2D8EA600BC6BF5 /* signUpApp.xcdatamodeld */; };
+		D571DB5F2A2D91D600BC6BF5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571DB5D2A2D91D600BC6BF5 /* ImagePicker.swift */; };
+		D571DB602A2D91D600BC6BF5 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571DB5E2A2D91D600BC6BF5 /* VisualEffectBlur.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D571DB522A2D8EA600BC6BF5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D571DB552A2D8EA600BC6BF5 /* signUpApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = signUpApp.xcdatamodel; sourceTree = "<group>"; };
 		D571DB572A2D8EA600BC6BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D571DB5D2A2D91D600BC6BF5 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D571DB5E2A2D91D600BC6BF5 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,7 @@
 				D571DB522A2D8EA600BC6BF5 /* Persistence.swift */,
 				D571DB572A2D8EA600BC6BF5 /* Info.plist */,
 				D571DB542A2D8EA600BC6BF5 /* signUpApp.xcdatamodeld */,
+				D571DB612A2D91FB00BC6BF5 /* Helpers */,
 				D571DB4F2A2D8EA600BC6BF5 /* Preview Content */,
 			);
 			path = signUpApp;
@@ -73,6 +78,15 @@
 				D571DB502A2D8EA600BC6BF5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D571DB612A2D91FB00BC6BF5 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D571DB5D2A2D91D600BC6BF5 /* ImagePicker.swift */,
+				D571DB5E2A2D91D600BC6BF5 /* VisualEffectBlur.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +161,8 @@
 			files = (
 				D571DB532A2D8EA600BC6BF5 /* Persistence.swift in Sources */,
 				D571DB562A2D8EA600BC6BF5 /* signUpApp.xcdatamodeld in Sources */,
+				D571DB5F2A2D91D600BC6BF5 /* ImagePicker.swift in Sources */,
+				D571DB602A2D91D600BC6BF5 /* VisualEffectBlur.swift in Sources */,
 				D571DB4C2A2D8EA400BC6BF5 /* ContentView.swift in Sources */,
 				D571DB4A2A2D8EA400BC6BF5 /* signUpAppApp.swift in Sources */,
 			);
