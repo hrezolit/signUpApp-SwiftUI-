@@ -3,86 +3,181 @@
 //  signUpApp
 //
 //  Created by Nikita on 5/6/23.
-//
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    
+    @State private var email: String = ""
+    @State private var password: String = ""
+    
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+        
+        ZStack {
+            Image("background-3")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Sign up")
+                        .font(.largeTitle.bold())
+                        .foregroundColor(.white)
+                    Text("Some information about something, make some correction of text later, for visible i add some text here...")
+                        .font(.subheadline)
+                        .foregroundColor(Color.white .opacity(0.8))
+                    HStack(spacing: 12) {
+                        Image(systemName: "envelope.open.fill")
+                            .foregroundColor(.white)
+                        TextField("Email", text: $email)
+                            .colorScheme(.dark)
+                            .foregroundColor(Color.white.opacity(0.7))
+                            .autocapitalization(.none)
+                            .textContentType(.emailAddress)
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    .frame(height: 52)
+                    .overlay(RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color.white, lineWidth: 1)
+                        .blendMode(.overlay)
+                             
+                    )
+                    .background(
+                        Color("secondaryBackground")
+                            .cornerRadius(16)
+                            .opacity(0.8)
+                    )
+                    HStack(spacing: 12) {
+                        Image(systemName: "key.fill")
+                            .foregroundColor(.white)
+                        TextField("Password", text: $password)
+                            .colorScheme(.dark)
+                            .foregroundColor(Color.white.opacity(0.7))
+                            .autocapitalization(.none)
+                            .textContentType(.password)
                     }
+                    .frame(height: 52)
+                    .overlay(RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color.white, lineWidth: 1)
+                        .blendMode(.overlay)
+                             
+                    )
+                    .background(
+                        Color("secondaryBackground")
+                            .cornerRadius(16)
+                            .opacity(0.8)
+                    )
+                    
+                    GradientButton()
+                    
+                    Text(("By clicking on Sign up, you agree to our Terms of service and Privacy policy"))
+                        .font(.footnote)
+                        .foregroundColor(Color.white.opacity(0.7))
+                    
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(.white.opacity(0.1))
+                    VStack (alignment: .leading,
+                            spacing: 16,
+                            content: {
+                        
+                        Button(action: {
+                            print("Switch to sign in")
+                            
+                        }, label: {
+                            HStack(spacing: 4) {
+                                Text("Alredy have an account?")
+                                    .font(.footnote)
+                                    .foregroundColor(.white.opacity(0.7))
+                                GradientText(text: "Sign in")
+                                    .font(.footnote)
+                                    .bold()
+                            }
+                        })
+                    })
+                    
                 }
+                .padding(20)
             }
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
+            .background(
+                RoundedRectangle(cornerRadius: 30)
+                    .stroke(Color.white.opacity(0.2))
+                    .background(Color("secondaryBackground").opacity(0.5))
+                    .background(VisualEffectBlur(blurStyle: .systemThinMaterial))
+                    .shadow(color: Color("shadowColor").opacity(0.5), radius: 60, x: 0, y: 30)
+            )
+            .cornerRadius(30)
+            .padding(.horizontal)
         }
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
+    }
+}
+
+extension View {
+    
+    public func gradientForeground(colors: [Color]) -> some View {
+        self.overlay(LinearGradient(gradient: Gradient(colors: colors),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing))
+        .mask(self)
+    }
+}
+
+struct GradientText: View {
+    
+    var text: String = "Text here..."
+    
+    var body: some View {
+        Text(text)
+            .gradientForeground(colors:
+                                    [Color("pink-gradient-1"),
+                                     Color("pink-gradient-2")])
+    }
+}
+
+struct GradientButton: View {
+    var body: some View {
+        Button(action: {
+            print ("Sign up")
+        }, label: {
+            GeometryReader() { geometry in
+                ZStack {
+                    AngularGradient(
+                        gradient: Gradient(colors: [Color.red, Color.blue]),
+                        center: .center,
+                        angle: .degrees(0))
+                    .blendMode(.overlay)
+                    .blur(radius: 8)
+                    .mask(
+                        RoundedRectangle(cornerRadius: 16)
+                            .frame(height: 50)
+                            .frame(maxWidth: geometry.size.width - 16)
+                            .blur(radius: 8)
+                    )
+                    GradientText(text: "Sign Up")
+                        .font(Font.headline)
+                        .frame(width: geometry.size.width - 16)
+                        .frame(height: 50)
+                        .background(
+                            Color ("tertiaryBackground")
+                                .opacity(0.9)
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(Color.white,
+                                        lineWidth: 1.9)
+                                        .blendMode(.normal)
+                                        .opacity(0.7)
+                        )
+                        .cornerRadius(16)
+                }
+            }
+            .frame(height: 50)
+        })
     }
 }

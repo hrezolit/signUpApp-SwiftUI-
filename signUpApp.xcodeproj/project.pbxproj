@@ -13,6 +13,8 @@
 		D571DB512A2D8EA600BC6BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D571DB502A2D8EA600BC6BF5 /* Preview Assets.xcassets */; };
 		D571DB532A2D8EA600BC6BF5 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571DB522A2D8EA600BC6BF5 /* Persistence.swift */; };
 		D571DB562A2D8EA600BC6BF5 /* signUpApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D571DB542A2D8EA600BC6BF5 /* signUpApp.xcdatamodeld */; };
+		D5AD48992A2EEB8A00075EA8 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AD48972A2EEB8A00075EA8 /* VisualEffectBlur.swift */; };
+		D5AD489A2A2EEB8A00075EA8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AD48982A2EEB8A00075EA8 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D571DB522A2D8EA600BC6BF5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		D571DB552A2D8EA600BC6BF5 /* signUpApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = signUpApp.xcdatamodel; sourceTree = "<group>"; };
 		D571DB572A2D8EA600BC6BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D5AD48972A2EEB8A00075EA8 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		D5AD48982A2EEB8A00075EA8 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		D571DB482A2D8EA400BC6BF5 /* signUpApp */ = {
 			isa = PBXGroup;
 			children = (
+				D5AD48962A2EEB8A00075EA8 /* Helpers */,
 				D571DB492A2D8EA400BC6BF5 /* signUpAppApp.swift */,
 				D571DB4B2A2D8EA400BC6BF5 /* ContentView.swift */,
 				D571DB4D2A2D8EA600BC6BF5 /* Assets.xcassets */,
@@ -73,6 +78,15 @@
 				D571DB502A2D8EA600BC6BF5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D5AD48962A2EEB8A00075EA8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D5AD48972A2EEB8A00075EA8 /* VisualEffectBlur.swift */,
+				D5AD48982A2EEB8A00075EA8 /* ImagePicker.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5AD48992A2EEB8A00075EA8 /* VisualEffectBlur.swift in Sources */,
 				D571DB532A2D8EA600BC6BF5 /* Persistence.swift in Sources */,
 				D571DB562A2D8EA600BC6BF5 /* signUpApp.xcdatamodeld in Sources */,
+				D5AD489A2A2EEB8A00075EA8 /* ImagePicker.swift in Sources */,
 				D571DB4C2A2D8EA400BC6BF5 /* ContentView.swift in Sources */,
 				D571DB4A2A2D8EA400BC6BF5 /* signUpAppApp.swift in Sources */,
 			);
