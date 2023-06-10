@@ -10,6 +10,8 @@ struct ContentView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var editingEmailTextfield: Bool = false
+    @State private var editingPasswordTextfield: Bool = false
     
     var body: some View {
         
@@ -28,9 +30,11 @@ struct ContentView: View {
                         .font(.subheadline)
                         .foregroundColor(Color.white .opacity(0.8))
                     HStack(spacing: 12) {
-                        Image(systemName: "envelope.open.fill")
-                            .foregroundColor(.white)
-                        TextField("Email", text: $email)
+                        TextfieldIcon(iconName: "envelope.open.fill", currentlyEditing: $editingEmailTextfield)
+                        TextField("Email", text: $email) { isEditing in
+                            editingEmailTextfield = isEditing
+                            editingPasswordTextfield = false
+                        }
                             .colorScheme(.dark)
                             .foregroundColor(Color.white.opacity(0.7))
                             .autocapitalization(.none)
@@ -115,69 +119,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-extension View {
-    
-    public func gradientForeground(colors: [Color]) -> some View {
-        self.overlay(LinearGradient(gradient: Gradient(colors: colors),
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing))
-        .mask(self)
-    }
-}
-
-struct GradientText: View {
-    
-    var text: String = "Text here..."
-    
-    var body: some View {
-        Text(text)
-            .gradientForeground(colors:
-                                    [Color("pink-gradient-1"),
-                                     Color("pink-gradient-2")])
-    }
-}
-
-struct GradientButton: View {
-    var body: some View {
-        Button(action: {
-            print ("Sign up")
-        }, label: {
-            GeometryReader() { geometry in
-                ZStack {
-                    AngularGradient(
-                        gradient: Gradient(colors: [Color.red, Color.blue]),
-                        center: .center,
-                        angle: .degrees(0))
-                    .blendMode(.overlay)
-                    .blur(radius: 8)
-                    .mask(
-                        RoundedRectangle(cornerRadius: 16)
-                            .frame(height: 50)
-                            .frame(maxWidth: geometry.size.width - 16)
-                            .blur(radius: 8)
-                    )
-                    GradientText(text: "Sign Up")
-                        .font(Font.headline)
-                        .frame(width: geometry.size.width - 16)
-                        .frame(height: 50)
-                        .background(
-                            Color ("tertiaryBackground")
-                                .opacity(0.9)
-                        )
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 16)
-                                .stroke(Color.white,
-                                        lineWidth: 1.9)
-                                        .blendMode(.normal)
-                                        .opacity(0.7)
-                        )
-                        .cornerRadius(16)
-                }
-            }
-            .frame(height: 50)
-        })
     }
 }

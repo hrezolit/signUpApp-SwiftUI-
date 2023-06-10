@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D53392452A344D3F00E469B9 /* GradientText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53392442A344D3F00E469B9 /* GradientText.swift */; };
+		D53392472A344E4700E469B9 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53392462A344E4700E469B9 /* GradientButton.swift */; };
+		D53392492A344F0C00E469B9 /* TextfieldIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53392482A344F0C00E469B9 /* TextfieldIcon.swift */; };
 		D571DB4A2A2D8EA400BC6BF5 /* signUpAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571DB492A2D8EA400BC6BF5 /* signUpAppApp.swift */; };
 		D571DB4C2A2D8EA400BC6BF5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D571DB4B2A2D8EA400BC6BF5 /* ContentView.swift */; };
 		D571DB4E2A2D8EA600BC6BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D571DB4D2A2D8EA600BC6BF5 /* Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D53392442A344D3F00E469B9 /* GradientText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientText.swift; sourceTree = "<group>"; };
+		D53392462A344E4700E469B9 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
+		D53392482A344F0C00E469B9 /* TextfieldIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldIcon.swift; sourceTree = "<group>"; };
 		D571DB462A2D8EA400BC6BF5 /* signUpApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = signUpApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D571DB492A2D8EA400BC6BF5 /* signUpAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpAppApp.swift; sourceTree = "<group>"; };
 		D571DB4B2A2D8EA400BC6BF5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +47,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D53392432A344CB000E469B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D53392442A344D3F00E469B9 /* GradientText.swift */,
+				D53392462A344E4700E469B9 /* GradientButton.swift */,
+				D53392482A344F0C00E469B9 /* TextfieldIcon.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D571DB3D2A2D8EA300BC6BF5 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +79,7 @@
 				D5AD48962A2EEB8A00075EA8 /* Helpers */,
 				D571DB492A2D8EA400BC6BF5 /* signUpAppApp.swift */,
 				D571DB4B2A2D8EA400BC6BF5 /* ContentView.swift */,
+				D53392432A344CB000E469B9 /* Views */,
 				D571DB4D2A2D8EA600BC6BF5 /* Assets.xcassets */,
 				D571DB522A2D8EA600BC6BF5 /* Persistence.swift */,
 				D571DB572A2D8EA600BC6BF5 /* Info.plist */,
@@ -160,6 +177,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5AD48992A2EEB8A00075EA8 /* VisualEffectBlur.swift in Sources */,
+				D53392472A344E4700E469B9 /* GradientButton.swift in Sources */,
+				D53392452A344D3F00E469B9 /* GradientText.swift in Sources */,
+				D53392492A344F0C00E469B9 /* TextfieldIcon.swift in Sources */,
 				D571DB532A2D8EA600BC6BF5 /* Persistence.swift in Sources */,
 				D571DB562A2D8EA600BC6BF5 /* signUpApp.xcdatamodeld in Sources */,
 				D5AD489A2A2EEB8A00075EA8 /* ImagePicker.swift in Sources */,
