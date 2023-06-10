@@ -52,8 +52,7 @@ struct ContentView: View {
                             .opacity(0.8)
                     )
                     HStack(spacing: 12) {
-                        Image(systemName: "key.fill")
-                            .foregroundColor(.white)
+                        TextfieldIcon(iconName: "key.fill", currentlyEditing: $editingPasswordTextfield)
                         TextField("Password", text: $password)
                             .colorScheme(.dark)
                             .foregroundColor(Color.white.opacity(0.7))
@@ -71,6 +70,10 @@ struct ContentView: View {
                             .cornerRadius(16)
                             .opacity(0.8)
                     )
+                    .onTapGesture {
+                        editingPasswordTextfield = true
+                        editingEmailTextfield = false
+                    }
                     
                     GradientButton()
                     
