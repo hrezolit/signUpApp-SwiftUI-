@@ -13,6 +13,8 @@ struct TextfieldIcon: View {
     
     @Binding var currentlyEditing: Bool
     
+    @State private var colorAngle: Double = 0.0
+    
     
     var gradient1: [Color] = [
         Color.init(red: 101/255, green: 134/255, blue: 1),
@@ -29,10 +31,16 @@ struct TextfieldIcon: View {
                         AngularGradient(
                             gradient: Gradient(colors: gradient1),
                             center: .center,
-                            angle: .degrees(0)
+                            angle: .degrees(colorAngle)
                         )
                         .blur(radius: 10)
+                        .onAppear() {
+                            withAnimation(.linear(duration: 7.0)) {
+                                self.colorAngle += 350
+                            }
+                        }
                     }
+                    
                     Color("tertiaryBackground")
                         .opacity(0.8)
                         .cornerRadius(12)
